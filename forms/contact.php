@@ -28,7 +28,7 @@
   $contact->smtp = array(
     'host' => 'smtp-relay.brevo.com',
     'username' => 'a460b0001@smtp-brevo.com',
-    'password' => 'xsmtpsib-27a732a279dc08b037b68e8be65fdd51a65a445c1a7cb037c24bce519e79fd27-RSrey1OivA41lU83',
+    'password' => 'xsmtpsib-27a732a279dc08b037b68e8be65fdd51a65a445c1a7cb037c24bce519e79fd27-RSrey1OivA41lU83', 
     'port' => '587'
   );
   
