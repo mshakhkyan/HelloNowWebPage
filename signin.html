@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <meta name="description" content="Sign in to your account">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .signin-container {
+            display: flex;
+            height: 100vh;
+        }
+        .signin-left {
+            width: 30%;
+            min-height: 100vh;
+            background-image: url('assets/img/loginbanner.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+        }
+        .signin-right {
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F5F6FC;
+            padding: 20px;
+        }
+        .signin-form {
+            width: 100%;
+            max-width: 400px;
+        }
+        .signin-form h2 {
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        .form-control:focus {
+            border-color: #affe00;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .form-check {
+            margin-bottom: 20px;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .forgot-password a {
+            color: #100C08;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .btn-signin {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: #affe00;
+            border: none;
+            color: #100C08;
+            font-weight: 600;
+            margin-top: 20px;
+            
+        }
+        .btn-signin:hover {
+            opacity: 0.9;
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 14px;
+        }
+        .sso-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-sso {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #affe00;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-sso:hover {
+            background-color: #f0f0f0;
+        }
+
+        .forgot_password  {
+                color: #100C08;
+                font-size: 17px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <div class="signin-left"></div>
+        <div class="signin-right">
+                
+            <form class="signin-form" id="loginForm">
+                <img src="assets/img/Horizontal logo.png" alt="Logo" class="mb-4" style="width: 250px;">                
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    <div id="errorMessage" style="color: red; font-size: 14px; margin-top: 5px; display: none;">
+                        Wrong email or password.
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-check mb-0">
+                        <input class="form-check-input" type="checkbox" id="remember" value="">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot_password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn-signin">Sign In</button>
+
+                <div class="divider">Or continue with</div>
+
+                <div class="sso-buttons">
+                    <button type="button" class="btn-sso">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                </div>
+                
+                <div class="divider"> 
+                    <a href="#" class="forgot_password"> Don't have an account? Sign Up</a>
+                </div>
+            </form>
+
+            <script>
+                document.getElementById('loginForm').addEventListener('submit', function(event) {
+                    // 1. Prevent the form from refreshing the page
+                    event.preventDefault();
+
+                    // 2. Get the input values
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const errorDiv = document.getElementById('errorMessage');
+
+                    // 3. Validation Logic
+                    if (email === 'test@test.com' && password === 'test') {
+                        // Success: Redirect to "X" page (replace 'dashboard.html' with your actual URL)
+                        window.location.href = 'underConstruction.html'; 
+                    } else {
+                        // Failure: Show the error message
+                        errorDiv.style.display = 'block';
+                        
+                        // Optional: Shake effect or highlight border
+                        document.getElementById('password').style.borderColor = 'red';
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

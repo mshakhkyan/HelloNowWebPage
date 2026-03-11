@@ -163,7 +163,7 @@ h6 {
   font-size: 30px;
   margin: 0;
   font-weight: 700;
-  color: var(--headin.g-color);
+  color: var(--heading-color);
 }
 
 .header .btn-signup,
@@ -905,7 +905,7 @@ section,
 }
 
 .hero .btn-watch-video:hover {
-  color: var(--accent-color);
+  color: #012970;
 }
 
 .hero .btn-watch-video:hover i {
@@ -2129,12 +2129,7 @@ team section
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
+
 
 /*--------------------------------------------------------------
 # Blog Posts Section

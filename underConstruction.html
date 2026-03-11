@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        /* CSS Variables for easy color management */
+        :root {
+            --bg-color: #1a1a24;
+            --text-color: #ffffff;
+            --accent-color: #affe00;
+            --ground-color: #333344;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Prevents scrollbars from animations */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        /* --- Log Out Button --- */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100; /* Ensures it stays on top of dust particles */
+        }
+
+        .logout-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* --- Center Content & Typography --- */
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+        }
+
+        /* --- Rotating Gears --- */
+        .gears-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .gear {
+            position: absolute;
+            fill: var(--accent-color);
+        }
+
+        /* Large center gear */
+        .gear-large {
+            width: 120px;
+            height: 120px;
+            top: 40px;
+            left: 40px;
+            animation: spinRight 6s linear infinite;
+        }
+
+        /* Smaller top-left gear */
+        .gear-small-1 {
+            width: 80px;
+            height: 80px;
+            top: -5px;
+            left: -5px;
+            animation: spinLeft 4s linear infinite;
+        }
+
+        /* Smaller bottom-right gear */
+        .gear-small-2 {
+            width: 70px;
+            height: 70px;
+            bottom: 5px;
+            right: 0px;
+            animation: spinLeft 3.5s linear infinite;
+        }
+
+        @keyframes spinRight {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spinLeft {
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* --- Bottom Construction Area --- */
+        .construction-zone {
+            position: relative;
+            height: 100px;
+            background: repeating-linear-gradient(
+                45deg,
+                #111,
+                #111 15px,
+                #ffcc00 15px,
+                #ffcc00 30px
+            );
+            border-top: 10px solid var(--ground-color);
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5%;
+        }
+
+        /* Container to sit elements on the "ground" */
+        .ground-elements {
+            position: absolute;
+            bottom: 100%; /* Sits right on top of the striped bar */
+            left: 0;
+            width: 100%;
+            height: 60px;
+            pointer-events: none;
+        }
+
+        .item {
+            position: absolute;
+            bottom: 0;
+            font-size: 3rem;
+        }
+
+        /* Static items */
+        .crane { left: 10%; font-size: 5rem; bottom: -10px; }
+        .workers { right: 15%; font-size: 2.5rem; }
+        .barricade { right: 30%; font-size: 2.5rem; }
+        .bricks { left: 25%; font-size: 2rem; }
+
+        /* Animated Tractor */
+        .tractor {
+            font-size: 4rem;
+            bottom: -5px;
+            animation: driveTractor 12s ease-in-out infinite;
+        }
+
+        @keyframes driveTractor {
+            0% { left: -10%; transform: scaleX(1); }
+            45% { left: 70%; transform: scaleX(1); }
+            50% { left: 70%; transform: scaleX(-1); } /* Flip horizontally */
+            95% { left: -10%; transform: scaleX(-1); }
+            100% { left: -10%; transform: scaleX(1); }
+        }
+
+        /* --- JS Generated Dust Particles --- */
+        .dust {
+            position: absolute;
+            background-color: rgba(255, 204, 0, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-200px) scale(0); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+        <button class="logout-btn" onclick="window.location.href = 'signin.html';">Log Out</button>
+
+
+    <div class="content">
+        <h1>Under Construction<span id="dots"></span></h1>
+        <p>Our tools are spinning. Check back soon!</p>
+        
+        <div class="gears-container">
+            <svg class="gear gear-large" viewBox="0 0 100 100">
+                <path d="M50 20c-16.5 0-30 13.5-30 30s13.5 30 30 30 30-13.5 30-30-13.5-30-30-30zm0 45c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z"/>
+                <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="10" stroke-dasharray="15 10" fill="none"/>
+            </svg>
+            <svg class="gear gear-small-1" viewBox="0 0 100 100">
+                <path d="M50 20c-16.5 0-30 13.5-30 30s13.5 30 30 30 30-13.5 30-30-13.5-30-30-30zm0 45c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z"/>
+                <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="10" stroke-dasharray="15 10" fill="none"/>
+            </svg>
+            <svg class="gear gear-small-2" viewBox="0 0 100 100">
+                <path d="M50 20c-16.5 0-30 13.5-30 30s13.5 30 30 30 30-13.5 30-30-13.5-30-30-30zm0 45c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z"/>
+                <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="10" stroke-dasharray="15 10" fill="none"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="construction-zone">
+        <div class="ground-elements">
+            <div class="item crane">🏗️</div>
+            <div class="item bricks">🧱</div>
+            <div class="item tractor">🚜</div>
+            <div class="item barricade">🚧</div>
+            <div class="item workers">👷 👷‍♀️</div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Animate the loading dots on the title
+        const dotsElement = document.getElementById('dots');
+        let dotCount = 0;
+        
+        setInterval(() => {
+            dotCount = (dotCount + 1) % 4;
+            dotsElement.textContent = '.'.repeat(dotCount);
+        }, 500);
+
+        // 2. Generate random "dust/sparks" coming from the construction site
+        function createDust() {
+            const dust = document.createElement('div');
+            dust.classList.add('dust');
+            
+            // Randomize size, position, and animation duration
+            const size = Math.random() * 6 + 2; // 2px to 8px
+            const left = Math.random() * window.innerWidth;
+            const duration = Math.random() * 3 + 2; // 2s to 5s
+            
+            dust.style.width = `${size}px`;
+            dust.style.height = `${size}px`;
+            dust.style.left = `${left}px`;
+            dust.style.bottom = '100px'; // Start right above the ground
+            dust.style.animationDuration = `${duration}s`;
+            
+            document.body.appendChild(dust);
+            
+            // Remove the particle from the DOM once the animation finishes
+            setTimeout(() => {
+                dust.remove();
+            }, duration * 1000);
+        }
+
+        // Create a new dust particle every 150 milliseconds
+        setInterval(createDust, 150);
+    </script>
+</body>
+</html>
